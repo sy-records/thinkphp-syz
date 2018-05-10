@@ -5,7 +5,7 @@ use Think\Controller;
 
 class OrderController extends Controller {
 
-    public function index(){
+    public function excelDemo(){
     	$header = array(
 
             array(NULL, 沈唁, 集成, Excel)
@@ -21,5 +21,5 @@ class OrderController extends Controller {
         $data = array_merge($header,$orderinfo);
         createXls($data);
     }
-    
+
 }
