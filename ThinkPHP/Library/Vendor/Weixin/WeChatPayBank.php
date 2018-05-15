@@ -60,7 +60,7 @@ class WechatPayBank
             'enc_bank_no'       => self::getRSA($bank_no, $this->certificate_path),
             'enc_true_name'     => self::getRSA($true_name, $this->certificate_path),
             'bank_code'         => $bank_code,
-            'amount'            => intval($amount),
+            'amount'            => intval($amount)*100,
             'desc'              => "提现处理成功!"
         ];
 
