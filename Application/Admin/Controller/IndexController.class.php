@@ -3,6 +3,7 @@ namespace Admin\Controller;
 use Think\Controller;
 
 class IndexController extends Controller {
+
     /**
      * 发送邮件demo
      * @throws \phpmailerException
@@ -17,5 +18,16 @@ class IndexController extends Controller {
         }else{
             $this->error('发送失败');
         }
+    }
+
+    /**
+     * 通过邮箱获取Gravatar
+     * 博客地址：https://qq52o.me/2239.html
+     */
+    public function getGravatarDemo()
+    {
+        $email = '52o@qq52o.cn';
+        $imgUrl = getGravatar($email);
+        echo "<img src=" . $imgUrl . " />";
     }
 }
