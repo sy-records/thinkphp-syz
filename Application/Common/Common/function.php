@@ -95,13 +95,14 @@ function createCsv($data,$header=null,$filename='orderlist.csv'){
  * @throws phpmailerException
  */
 function sendMail($to, $subject, $content){
-    Vendor('phpmailer.class#phpmailer');
+    vendor('PHPMailer.class#phpmailer');
     $mail = new \PHPMailer(); //实例化
     // 装配邮件服务器
     if (C('MAIL_SMTP')) {
         $mail->IsSMTP();  //启动SMTP
     }
     $mail->Host = C('MAIL_HOST'); //SMTP服务器地址
+    $mail->Port = C('MAIL_PORT'); //邮件端口
     $mail->SMTPAuth = C('MAIL_SMTPAUTH'); //启用SMTP认证
     $mail->Username = C('MAIL_USERNAME');//邮箱名称
     $mail->Password = C('MAIL_PASSWORD');//邮箱密码
