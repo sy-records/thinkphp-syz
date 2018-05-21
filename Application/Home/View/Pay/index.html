@@ -1,0 +1,50 @@
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>微信支付</title>
+</head>
+<body style="text-align: center;">
+<button onclick="callpay()">购买</button>
+<jquery />
+</body>
+</html>
+<script type="text/javascript">
+    //调用微信JS api 支付
+    function jsApiCall(json)
+    {
+        WeixinJSBridge.invoke(
+            'getBrandWCPayRequest',
+            json,
+            function(res){
+                WeixinJSBridge.log(res.err_msg);
+                if(res.err_msg == "get_brand_wcpay_request:ok"){
+// 使用以上方式判断前端返回,微信团队郑重提示：res.err_msg将在用户支付成功后返回ok，但并不保证它绝对可靠。
+                    alert(res.err_code+res.err_desc+res.err_msg);
+                }else{
+                    //显示错误信息
+                    alert(res.err_code+res.err_desc+res.err_msg);
+                }
+            }
+        );
+    }
+    function callpay()
+    {
+        $.ajax({
+            url:"{:U('pay/pay')}?id={$order_id}", // 这里我是通过id去查订单号的
+            type:"GET",
+            success:function(res){
+                    if (typeof WeixinJSBridge == "undefined"){
+                        if( document.addEventListener ){
+                            document.addEventListener('WeixinJSBridgeReady', jsApiCall, false);
+                        }else if (document.attachEvent){
+                            document.attachEvent('WeixinJSBridgeReady', jsApiCall);
+                            document.attachEvent('onWeixinJSBridgeReady', jsApiCall);
+                        }
+                    }else{
+                        jsApiCall(res.result);
+                    }
+            }
+        })
+    }
+</script>
