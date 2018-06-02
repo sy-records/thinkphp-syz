@@ -33,9 +33,6 @@ class PayController extends Controller {
             $order_sn = $post['out_trade_no'];
             //$order_sn = 'SY201805121145102321380644';
 
-            $model = new OrderRelationModel();
-            $order = $model->where(['order_sn' => $order_sn,'status' => 1])->relation(true)->find();
-
             //完成你的业务逻辑 修改状态之类的
 
             //给微信返回 防止重复通知
