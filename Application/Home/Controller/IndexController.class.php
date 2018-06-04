@@ -8,7 +8,8 @@ class IndexController extends Controller {
 	 * $url 链接
 	 * $size 大小
 	 */
-	public function qrcode() {
+	public function qrcode()
+    {
 		$url = "https://qq52o.me/";
 		$size = '6';
 		qrcode($url, $size);
@@ -18,7 +19,8 @@ class IndexController extends Controller {
 	 * 封装一个P方法打印数组
 	 * @return [type] [description]
 	 */
-	public function p() {
+	public function p()
+    {
 		$array = array(
 			't0' => 'test0',
 			't1' => 'test1',
