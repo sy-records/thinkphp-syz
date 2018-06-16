@@ -1,5 +1,5 @@
 <?php
-return [
+return array(
     /* 数据库设置 */
     'DB_TYPE' => 'mysql', // 数据库类型
     'DB_HOST' => '', // 服务器地址
@@ -8,5 +8,4 @@ return [
     'DB_PWD' => '', // 密码
     'DB_PORT' => '3306', // 端口
     'DB_PREFIX' => '', // 数据库表前缀
-
-];
+);
