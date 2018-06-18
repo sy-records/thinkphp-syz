@@ -12,5 +12,4 @@ return array(
 	'SHOW_PAGE_TRACE'=>true,
     // 引入其他配置信息
     'LOAD_EXT_CONFIG' => 'wechat,db,email',
-
 );

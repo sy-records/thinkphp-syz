@@ -13,7 +13,8 @@ array('Q3',   52,   61,   69),
 array('Q4',   30,   32,    0),
 );
  */
-function createXls($data, $filename = 'simple.xls') {
+function createXls($data, $filename = 'simple.xls')
+{
 	ini_set('max_execution_time', '0');
 	Vendor('PHPExcel.PHPExcel');
 
@@ -61,7 +62,8 @@ $data = array(
 );
 $header='用户名,密码,头像,性别,手机号';
  */
-function createCsv($data, $header = null, $filename = 'orderlist.csv') {
+function createCsv($data, $header = null, $filename = 'orderlist.csv')
+{
 	// 如果手动设置表头；则放在第一行
 	if (!is_null($header)) {
 		array_unshift($data, $header);
@@ -94,7 +96,8 @@ function createCsv($data, $header = null, $filename = 'orderlist.csv') {
  * @return bool
  * @throws phpmailerException
  */
-function sendMail($to, $subject, $content) {
+function sendMail($to, $subject, $content)
+{
 	vendor('PHPMailer.class#phpmailer');
 	$mail = new \PHPMailer(); //实例化
 	// 装配邮件服务器
@@ -124,7 +127,8 @@ function sendMail($to, $subject, $content) {
 }
 
 //获取Gravatar头像 QQ邮箱取用qq头像
-function getGravatar($email, $s = 96, $d = 'mp', $r = 'g', $img = false, $atts = array()) {
+function getGravatar($email, $s = 96, $d = 'mp', $r = 'g', $img = false, $atts = array())
+{
 	preg_match_all('/((\d)*)@qq.com/', $email, $vai);
 	if (empty($vai['1']['0'])) {
 		$url = 'https://www.gravatar.com/avatar/';
@@ -149,13 +153,15 @@ function getGravatar($email, $s = 96, $d = 'mp', $r = 'g', $img = false, $atts =
  * @param  string  $url  url连接
  * @param  integer $size 尺寸 纯数字
  */
-function qrcode($url, $size = 4) {
+function qrcode($url, $size = 4)
+{
 	Vendor('Phpqrcode.phpqrcode');
 	QRcode::png($url, false, QR_ECLEVEL_L, $size, 2, false, 0xFFFFFF, 0x000000);
 }
 
 //传递数据以易于阅读的样式格式化后输出
-function p($data) {
+function p($data)
+{
 	// 定义样式
 	$str = '<pre style="display: block;padding: 9.5px;margin: 44px 0 0 0;font-size: 13px;line-height: 1.42857;color: #333;word-break: break-all;word-wrap: break-word;background-color: #F5F5F5;border: 1px solid #CCC;border-radius: 4px;">';
 	if (is_bool($data)) {
