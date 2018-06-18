@@ -7,6 +7,31 @@ use Vendor\Weixin\WeChatTemplete;
 class OrderController extends Controller
 {
     /**
+     * 聚合快递查询接口
+     */
+    public function exp()
+    {
+        Vendor('Juhe.Exp');
+        header('Content-type:text/html;charset=utf-8');
+        $params = array(
+            'key' => '', //申请的快递appkey
+            'com' => '', //快递公司编码，可以通过$exp->getComs()获取支持的公司列表
+            'no'  => '' //快递编号
+        );
+        $exp = new Exp($params['key']); //初始化类
+
+        $result = $exp->query($params['com'],$params['no']); //执行查询
+
+        if($result['error_code'] == 0){//查询成功
+            $list = $result['result']['list'];
+            dump($list);
+        }else{
+            echo "获取失败，原因：".$result['reason'];
+        }
+
+    }
+
+    /**
      * 微信模板消息发送接口示例demo
      */
     public function sendWeChatTemplete()
