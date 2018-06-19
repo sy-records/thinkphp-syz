@@ -13,5 +13,5 @@ return array(
     // 引入其他配置信息
 	'LOAD_EXT_CONFIG' => 'wechat,db,email',
 	//聚合数据快递查询 APPKEY
-	'EXPRESS_APP_KEY' =>'0b3f2389b9bb77cf8f3c6c163b278617',
+	'EXPRESS_APP_KEY' =>'',
 );
