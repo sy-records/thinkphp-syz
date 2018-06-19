@@ -14,8 +14,8 @@ class OrderController extends Controller
         Vendor('Juhe.Exp');
         header('Content-type:text/html;charset=utf-8');
         $params = array(
-            'key' => '', //申请的快递appkey
-            'com' => '', //快递公司编码，可以通过$exp->getComs()获取支持的公司列表
+            'key' => C('EXPRESS_APP_KEY'), //申请的快递appkey
+            'com' => 'yt', //快递公司编码
             'no'  => '' //快递编号
         );
         $exp = new Exp($params['key']); //初始化类
@@ -24,7 +24,7 @@ class OrderController extends Controller
 
         if($result['error_code'] == 0){//查询成功
             $list = $result['result']['list'];
-            dump($list);
+            p($list);
         }else{
             echo "获取失败，原因：".$result['reason'];
         }
