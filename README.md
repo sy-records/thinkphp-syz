@@ -10,5 +10,5 @@
 6、微信公众号支付 [https://qq52o.me/2243.html](https://qq52o.me/2243.html)  
 7、封装一个P方法打印数组 /Application/Home/Controller/IndexController.class.php/p  
 8、生成二维码 /Application/Home/Controller/IndexController.class.php/qrcode  
-9、聚合数据物流查询/Application/Home/Controller/OrderController.class.php/exp  
-10、发送微信模板消息
+9、聚合数据物流查询 [https://qq52o.me/2334.html](https://qq52o.me/2334.html)   
+10、发送微信模板消息 [https://qq52o.me/2331.html](https://qq52o.me/2331.html)   
