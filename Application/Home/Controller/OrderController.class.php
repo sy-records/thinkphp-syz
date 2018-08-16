@@ -64,4 +64,38 @@ class OrderController extends Controller
         $result = $wct->sendTemplate($openid, $templateId, $data, $url); //执行发送
         p($result);
     }
+
+    /**
+     * 微信公众号开发之创建自定义菜单数据拼接 | 沈唁志
+     * link: https://qq52o.me/2430.html
+     */
+    public function setWeChatMenu()
+    {
+        // 0 表示为一级菜单
+        $data = $WechatMenuModel->where('first_id = 0')->select();
+        $secMenuData = [];
+        foreach ($data as $key => $val){
+            $secMenuData[$key]['name'] = $val['name'];
+            // 有二级菜单的时候 一级不需要链接 留空
+            if(empty($val['url'])) {
+                // 找二级菜单的信息
+                $son = $WechatMenuModel->where('first_id ='.$val['id'])->select();
+                if(!empty($son)){
+                    foreach ($son as $k =>  $value) {
+                        $secMenuData[$key]['sub_button'][] = [
+                            'type' => 'view',
+                            'url' => $value['url'],
+                            'name' => $value['name'],
+                        ];
+                    }
+                }
+            }else{
+                $secMenuData[$key]['type'] = 'view';
+                $secMenuData[$key]['url'] = $val['url'];
+            }
+        }
+        rsort($secMenuData);
+        $secMenuData = ['button'=>$secMenuData];
+        $menuJson = json_encode($secMenuData,JSON_UNESCAPED_UNICODE);
+    }
 }
