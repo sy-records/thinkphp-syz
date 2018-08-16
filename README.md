@@ -12,3 +12,4 @@
 8、生成二维码 /Application/Home/Controller/IndexController.class.php/qrcode  
 9、聚合数据物流查询 [https://qq52o.me/2334.html](https://qq52o.me/2334.html)   
 10、发送微信模板消息 [https://qq52o.me/2331.html](https://qq52o.me/2331.html)   
+11、自定义微信菜单 [https://qq52o.me/2430.html](https://qq52o.me/2430.html)   
