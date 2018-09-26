@@ -1,17 +1,16 @@
 <?php
-
 /**
  * 数组转xls格式的excel文件
  * @param  array  $data      需要生成excel文件的数组
  * @param  string $filename  生成的excel文件名
  *      示例数据：
-$data = array(
-array(NULL, 2010, 2011, 2012),
-array('Q1',   12,   15,   21),
-array('Q2',   56,   73,   86),
-array('Q3',   52,   61,   69),
-array('Q4',   30,   32,    0),
-);
+                $data = array(
+                array(NULL, 2010, 2011, 2012),
+                array('Q1',   12,   15,   21),
+                array('Q2',   56,   73,   86),
+                array('Q3',   52,   61,   69),
+                array('Q4',   30,   32,    0),
+                );
  */
 function createXls($data, $filename = 'simple.xls')
 {
@@ -55,12 +54,12 @@ function createXls($data, $filename = 'simple.xls')
  * @param  string $header   要生成的excel表头
  * @param  string $filename 生成的excel文件名
  *      示例数组：
-$data = array(
-'1,2,3,4,5',
-'6,7,8,9,0',
-'1,3,5,7,9'
-);
-$header='用户名,密码,头像,性别,手机号';
+                $data = array(
+                '1,2,3,4,5',
+                '6,7,8,9,0',
+                '1,3,5,7,9'
+                );
+                $header='用户名,密码,头像,性别,手机号';
  */
 function createCsv($data, $header = null, $filename = 'orderlist.csv')
 {
@@ -174,4 +173,41 @@ function p($data)
 	$str .= $show_data;
 	$str .= '</pre>';
 	echo $str;
+}
+
+/**
+ * 请求接口返回内容
+ *
+ * @param  string $url    [请求的URL地址]
+ * @param  string $params [请求的参数]
+ * @param  int    $ipost  [是否采用POST形式]
+ * @return string
+ */
+function myCurl($url, $params = false, $ispost = 0)
+{
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 60);
+    curl_setopt($ch, CURLOPT_TIMEOUT, 60);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false); // 跳过证书检查
+    curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 2); // 从证书中检查SSL加密算法是否存在
+    curl_setopt($ch, CURLOPT_HTTPHEADER, array ('Content-Type: application/json;charset=utf-8'));
+    if ($ispost) {
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $params);
+        curl_setopt($ch, CURLOPT_URL, $url);
+    } else {
+        if ($params) {
+            curl_setopt($ch, CURLOPT_URL, $url.'?'.$params);
+        } else {
+            curl_setopt($ch, CURLOPT_URL, $url);
+        }
+    }
+    $response = curl_exec($ch);
+    if ($response === false) {
+        return 'cURL Error:' . curl_error($ch);
+    }
+    curl_close($ch);
+    return $response;
 }
