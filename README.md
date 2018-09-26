@@ -13,3 +13,5 @@
 9、聚合数据物流查询 [https://qq52o.me/2334.html](https://qq52o.me/2334.html)   
 10、发送微信模板消息 [https://qq52o.me/2331.html](https://qq52o.me/2331.html)   
 11、自定义微信菜单 [https://qq52o.me/2430.html](https://qq52o.me/2430.html)   
+12、发送消息到钉钉机器人 /Application/Admin/Controller/IndexController.class.php/sendMessageToDingdingRobot   
+13、请求接口返回内容（CURL） /Application/Common/Common/function.php/myCurl   
