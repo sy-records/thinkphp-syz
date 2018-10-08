@@ -211,3 +211,23 @@ function myCurl($url, $params = false, $ispost = 0)
     curl_close($ch);
     return $response;
 }
+
+/**
+ * 对二维数组进行排序 去重
+ * @param $arr
+ * @param $key
+ * @return mixed
+ */
+public function assocUnique($arr, $key)
+{
+    $tmpArr = array();
+    foreach ($arr as $k => $v) {
+        if (in_array($v[$key], $tmpArr)) {//搜索$v[$key]是否在$tmp_arr数组中存在，若存在返回true
+            unset($arr[$k]);
+        } else {
+            $tmpArr[] = $v[$key];
+        }
+    }
+    sort($arr); //sort函数对数组进行排序
+    return $arr;
+}
