@@ -231,3 +231,52 @@ public function assocUnique($arr, $key)
     sort($arr); //sort函数对数组进行排序
     return $arr;
 }
+
+/**
+ * 推送微信消息 一对多推送 用于用户申请通知
+ * @param $blogname 博客名
+ * @param $blogurl 网址
+ * @param $email 邮箱
+ * @param $ip 提交ip
+ */
+function sendPushBear($blogname, $blogurl, $email, $ip)
+{
+    $url = 'https://pushbear.ftqq.com/sub';
+    $text = $blogname.'申请加入十年之约';
+    $desp = "### 博客名称：".$blogname."\n\n### 博客链接：[".$blogurl."](".$blogurl.")"."\n\n### 博主邮箱：".$email."\n\n### 申请IP：".$ip."\n\n### 请审核人员注意审核~辛苦啦";
+    $param = array(
+        'sendkey'   => config('extra.push_bear_key'),
+        'text'      => $text,
+        'desp'      => $desp
+    );
+    //将数组拼接成url地址参数
+    $paramurl = http_build_query($param);
+    myCurl($url,$paramurl);
+}
+
+/**
+ * 微信消息 一对一 用于管理员
+ * @param $text 消息标题
+ * @param string $desp 消息内容 支持md
+ * @return bool|string
+ */
+function scSend($text , $desp = '')
+{
+    $postData = http_build_query(
+        array(
+            'text' => $text,
+            'desp' => $desp
+        )
+    );
+
+    $opts = array('http' =>
+        array(
+            'method'  => 'POST',
+            'header'  => 'Content-type: application/x-www-form-urlencoded',
+            'content' => $postData
+        )
+    );
+    $context  = stream_context_create($opts);
+    return $result = file_get_contents('https://sc.ftqq.com/'.config('extra.push_send').'.send', false, $context);
+
+}
