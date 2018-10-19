@@ -15,4 +15,5 @@
 11、自定义微信菜单 [https://qq52o.me/2430.html](https://qq52o.me/2430.html)   
 12、发送消息到钉钉机器人 /Application/Admin/Controller/IndexController.class.php/sendMessageToDingdingRobot   
 13、请求接口返回内容（CURL） /Application/Common/Common/function.php/myCurl   
-14、使用webhook自动部署项目代码 /Application/Admin/Controller/IndexController.class.php/gitWebHook
+14、使用webhook自动部署项目代码 /Application/Admin/Controller/IndexController.class.php/gitWebHook   
+15、增加使用方糖推送微信模板消息 一对一 一对多 /Application/Common/Common/function.php/sendPushBear
