@@ -218,7 +218,7 @@ function myCurl($url, $params = false, $ispost = 0)
  * @param $key
  * @return mixed
  */
-public function assocUnique($arr, $key)
+function assocUnique($arr, $key)
 {
     $tmpArr = array();
     foreach ($arr as $k => $v) {
@@ -282,37 +282,53 @@ function scSend($text , $desp = '')
 }
 
 
-    /**
-     * 对二维数组查询结果集进行排序
-     *
-     * @access public
-     * @param array $list 查询结果
-     * @param string $field 排序的字段名
-     * @param string $sortby 排序类型 （asc正向排序 desc逆向排序 nat自然排序）
-     * @return array
-     */
-    public function listSortBy($list, $field, $sortby = 'asc')
-    {
-        if (is_array($list)) {
-            $refer = $resultSet = array();
-            foreach ($list as $i => $data) {
-                $refer[$i] = &$data[$field];
-            }
-            switch ($sortby) {
-                case 'asc': // 正向排序
-                    asort($refer);
-                    break;
-                case 'desc': // 逆向排序
-                    arsort($refer);
-                    break;
-                case 'nat': // 自然排序
-                    natcasesort($refer);
-                    break;
-            }
-            foreach ($refer as $key => $val) {
-                $resultSet[] = &$list[$key];
-            }
-            return $resultSet;
-        }
-        return false;
+/**
+ * 对二维数组查询结果集进行排序
+ *
+ * @access public
+ * @param array $list 查询结果
+ * @param string $field 排序的字段名
+ * @param string $sortby 排序类型 （asc正向排序 desc逆向排序 nat自然排序）
+ * @return array
+ */
+function listSortBy($list, $field, $sortby = 'asc')
+{
+if (is_array($list)) {
+    $refer = $resultSet = array();
+    foreach ($list as $i => $data) {
+	$refer[$i] = &$data[$field];
     }
+    switch ($sortby) {
+	case 'asc': // 正向排序
+	    asort($refer);
+	    break;
+	case 'desc': // 逆向排序
+	    arsort($refer);
+	    break;
+	case 'nat': // 自然排序
+	    natcasesort($refer);
+	    break;
+    }
+    foreach ($refer as $key => $val) {
+	$resultSet[] = &$list[$key];
+    }
+    return $resultSet;
+}
+return false;
+}
+
+/**
+ * 生成订单号
+ * @param        $num 最大值为9
+ * @param string $prefix 前缀
+ *
+ * @return string
+ */
+function setOrderId($num, $prefix = "")
+{
+	$max = pow(10, $num) - 1;
+	$min = pow(10, $num - 1);
+	$code = date('Ymd') . mt_rand($min, $max);
+
+	return $prefix.$code;
+}
