@@ -1,7 +1,6 @@
 # thinkphp-syz
 整合ThinkPHP功能系列
 
-
 1、生成csv格式的Excel表格 [https://qq52o.me/2227.html](https://qq52o.me/2227.html)  
 2、PHPExcel生成Excel表格文件 [https://qq52o.me/2229.html](https://qq52o.me/2229.html)  
 3、微信企业付款至用户零钱银行卡 [https://qq52o.me/2232.html](https://qq52o.me/2232.html)  
@@ -17,4 +16,5 @@
 13、请求接口返回内容（CURL） /Application/Common/Common/function.php/myCurl   
 14、使用webhook自动部署项目代码 /Application/Admin/Controller/IndexController.class.php/gitWebHook   
 15、增加使用方糖推送微信模板消息 一对一 一对多 /Application/Common/Common/function.php/sendPushBear   
-16、对二维数组查询结果集进行排序/Application/Common/Common/function.php/listSortBy
+16、对二维数组查询结果集进行排序/Application/Common/Common/function.php/listSortBy   
+17、生成订单号/Application/Common/Common/function.php/setOrderId   
