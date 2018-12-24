@@ -108,7 +108,7 @@ function sendMail($to, $subject, $content)
 	$mail->SMTPAuth = C('MAIL_SMTPAUTH'); //启用SMTP认证
 	$mail->Username = C('MAIL_USERNAME'); //邮箱名称
 	$mail->Password = C('MAIL_PASSWORD'); //邮箱密码
-	$mail->SMTPSecure = C('MAIL_SECURE'); //发件人地址
+	$mail->SMTPSecure = C('MAIL_SECURE'); //协议
 	$mail->CharSet = C('MAIL_CHARSET'); //邮件头部信息
 	$mail->From = C('MAIL_USERNAME'); //SMTP服务器登陆用户名
 	$mail->AddAddress($to);
