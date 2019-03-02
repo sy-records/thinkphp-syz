@@ -20,3 +20,4 @@
 16、对二维数组查询结果集进行排序 [/Application/Common/Common/function.php/listSortBy](https://github.com/sy-records/thinkphp-syz/blob/master/Application/Common/Common/function.php#L294)   
 17、生成订单号 [/Application/Common/Common/function.php/setOrderId](https://github.com/sy-records/thinkphp-syz/blob/master/Application/Common/Common/function.php#L327)   
 18、转义和反转义`emoji`表情 [/Application/Common/Common/function.php/emoji_encode](https://github.com/sy-records/thinkphp-syz/blob/master/Application/Common/Common/function.php#L341)   
+19、对二维数组进行排序、去重 [/Application/Common/Common/function.php/assocUnique](https://github.com/sy-records/thinkphp-syz/blob/master/Application/Common/Common/function.php#L221)   
