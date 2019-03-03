@@ -21,3 +21,5 @@
 17、生成订单号 [/Application/Common/Common/function.php/setOrderId](https://github.com/sy-records/thinkphp-syz/blob/master/Application/Common/Common/function.php#L327)   
 18、转义和反转义`emoji`表情 [/Application/Common/Common/function.php/emoji_encode](https://github.com/sy-records/thinkphp-syz/blob/master/Application/Common/Common/function.php#L341)   
 19、对二维数组进行排序、去重 [/Application/Common/Common/function.php/assocUnique](https://github.com/sy-records/thinkphp-syz/blob/master/Application/Common/Common/function.php#L221)   
+20、获取二维数组的差值（有唯一键） [/Application/Common/Common/function.php/getDiffArrayByPk](https://github.com/sy-records/thinkphp-syz/blob/master/Application/Common/Common/function.php#L379)   
+21、获取二维数组的差值（无唯一键） [/Application/Common/Common/function.php/getDiffArrayByFilter](https://github.com/sy-records/thinkphp-syz/blob/master/Application/Common/Common/function.php#L400)   
