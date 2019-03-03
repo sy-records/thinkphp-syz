@@ -367,7 +367,6 @@ function emoji_decode($str){
 	return $strDecode;
 }
 
-
 /**
  * 根据唯一字段对两个二维数组取差集 数组中某个key是唯一的
  *  - 去除$arr1 中 存在和$arr2相同的部分之后的内容
@@ -377,11 +376,18 @@ function emoji_decode($str){
  * @param string $pk
  * @return array
  */
-function get_diff_array_by_pk($arr1,$arr2,$pk='title'){
-	$res=[];
-	foreach($arr2 as $item) $tmpArr[$item[$pk]] = $item;
-	foreach($arr1 as $v) if(! isset($tmpArr[$v[$pk]])) $res[] = $v;
-	return $res;
+function getDiffArrayByPk($arr1, $arr2, $pk='title')
+{
+    $res = [];
+    foreach($arr2 as $item) {
+        $tmpArr[$item[$pk]] = $item;
+    }
+    foreach($arr1 as $v) {
+        if(!isset($tmpArr[$v[$pk]])) {
+            $res[] = $v;
+        }
+    }
+    return $res;
 }
 
 /**
@@ -391,8 +397,12 @@ function get_diff_array_by_pk($arr1,$arr2,$pk='title'){
  * @param $arr2
  * @return array
  */
-function get_diff_array_by_filter($arr1,$arr2){
-	return array_filter($arr1,function($v) use ($arr2){
-	    return !in_array($v,$arr2);
-	});
+function getDiffArrayByFilter($arr1, $arr2)
+{
+    return array_filter(
+        $arr1, function ($v) use ($arr2) {
+            return !in_array($v, $arr2);
+        }
+    );
 }
+
