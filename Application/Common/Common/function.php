@@ -406,3 +406,28 @@ function getDiffArrayByFilter($arr1, $arr2)
     );
 }
 
+//时间格式化（时间戳）
+function uc_time_ago($ptime) {
+	date_default_timezone_set('PRC');
+	//$ptime = strtotime($ptime);
+	$etime = time() - $ptime;
+	switch ($etime){
+		case $etime <= 60:
+			$msg = '刚刚';
+			break;
+		case $etime > 60 && $etime <= 60 * 60:
+			$msg = floor($etime / 60) . ' 分钟前';
+			break;
+		case $etime > 60 * 60 && $etime <= 24 * 60 * 60:
+			$msg = date('Ymd',$ptime)==date('Ymd',time()) ? '今天 '.date('H:i',$ptime) : '昨天 '.date('H:i',$ptime);
+			break;
+		case $etime > 24 * 60 * 60 && $etime <= 2 * 24 * 60 * 60:
+			$msg = date('Ymd',$ptime)+1==date('Ymd',time()) ? '昨天 '.date('H:i',$ptime) : '前天 '.date('H:i',$ptime);
+			break;
+		case $etime > 2 * 24 * 60 * 60 && $etime <= 12 * 30 * 24 * 60 * 60:
+			$msg = date('Y',$ptime)==date('Y',time()) ? date('m-d H:i',$ptime) : date('Y-m-d H:i',$ptime);
+			break;
+		default: $msg = date('Y-m-d H:i',$ptime);
+	}
+	return $msg;
+}
