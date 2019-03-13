@@ -23,3 +23,4 @@
 19、对二维数组进行排序、去重 [/Application/Common/Common/function.php/assocUnique](https://github.com/sy-records/thinkphp-syz/blob/master/Application/Common/Common/function.php#L221)   
 20、获取二维数组的差值（有唯一键） [/Application/Common/Common/function.php/getDiffArrayByPk](https://github.com/sy-records/thinkphp-syz/blob/master/Application/Common/Common/function.php#L379)   
 21、获取二维数组的差值（无唯一键） [/Application/Common/Common/function.php/getDiffArrayByFilter](https://github.com/sy-records/thinkphp-syz/blob/master/Application/Common/Common/function.php#L400)   
+22、PHP 格式化时间显示刚刚、几分钟前、昨天、前天 [/Application/Common/Common/uc_time_ago](https://github.com/sy-records/thinkphp-syz/blob/master/Application/Common/Common/function.php#L410)   
