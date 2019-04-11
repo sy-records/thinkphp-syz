@@ -9,7 +9,7 @@ namespace Vendor\Weixin;
 class WeChatTemplete
 {
     protected $_appid;
-    protected $key;
+    protected $_key;
 
     protected static $url;
 
